@@ -81,8 +81,8 @@
 
         // Bloqueo si el nombre es 'piero' o 'barto'
         if (nombre && (nombre.toLowerCase() === 'piero' || nombre.toLowerCase() === 'barto')) {
-            alert('¡Acceso bloqueado para Piero o Barto!');
-            window.location.href = 'pendejo.html'; // Redirige a pendejo.html si el nombre es 'Piero' o 'Barto'
+            alert('¡Acceso bloqueado para ' + nombre.charAt(0).toUpperCase() + nombre.slice(1) + '!');
+            window.location.href = 'pendejo.html?nombre=' + nombre; // Redirige a pendejo.html si el nombre es 'Piero' o 'Barto'
         } else {
             if (nombre) {
                 mensaje.innerHTML = `¡Feliz Navidad 2024 a ${nombre}! 🎄<br><br>Este año ha sido una verdadera aventura llena de risas y momentos únicos y muchas memorias compartidas. ¡Gracias por ser parte de mi vida y que el 2025 sea aún mejor! 🎉🎁`;
