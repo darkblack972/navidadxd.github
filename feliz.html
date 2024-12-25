@@ -47,13 +47,11 @@
     <label id="mensaje"></label>
 
     <script>
-        // Obtiene el parámetro 'nombre' de la URL
         const params = new URLSearchParams(window.location.search);
         const nombre = params.get('nombre');
 
-        // Actualiza el mensaje con el nombre recibido
         if (nombre) {
-            document.getElementById('mensaje').innerHTML = `¡Feliz Navidad 2024 a ${nombre}! 🎄<br><br>Este año ha sido una verdadera aventura llena de risas y momentos XD, momentos únicos y muchas memorias compartidas. Desde esas intensas partidas en videojuegos, hasta las largas horas de estudio en la universidad, pasando por las charlas y momentos divertidos en casa. Cada uno de ustedes ha sido una parte esencial de lo que hace tan especial este tiempo con ustedes desde lejos o aquí conmigo, y me siento afortunado de tenerlos cerca, ya sea de forma física o virtual.<br><br>Que esta Navidad nos regale más momentos de alegría, unión y, por supuesto, más risas compartidas. ¡Gracias por ser parte de mi vida y hacerla mucho más divertida! ¡Que el 2025 sea aún mejor para todos! 🎉🎁`;
+            document.getElementById('mensaje').innerHTML = `¡Feliz Navidad 2024 a ${nombre}! 🎄<br><br>Este año ha sido una verdadera aventura llena de risas y momentos XD, momentos únicos y muchas memorias compartidas. Desde esas intensas partidas en videojuegos, hasta las largas horas de estudio en la universidad, pasando por las charlas y momentos divertidos en casa. Cada uno de ustedes ha sido una parte esencial de lo que hace tan especial este tiempo conmigo. ¡Gracias por ser parte de mi vida y que el 2025 sea aún mejor! 🎉🎁`;
         } else {
             document.getElementById('mensaje').innerHTML = '¡Feliz Navidad 2024! 🎄';
         }
