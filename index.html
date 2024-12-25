@@ -4,11 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Poner Nombre Real o Nombre de Usuario</title>
+    <script>
+        function redirigir(event) {
+            event.preventDefault(); // Previene el comportamiento predeterminado del formulario
+            const nombre = document.getElementById('nombre').value.trim();
+            
+            if (nombre.toLowerCase() === "piero") {
+                window.location.href = "pendejo.html";
+            } else {
+                const url = `feliz.html?nombre=${encodeURIComponent(nombre)}`;
+                window.location.href = url;
+            }
+        }
+    </script>
 </head>
 <body>
     <h1>Poner nombre real o nombre de usuario</h1>
-    <!-- Acción apuntando a feliz.html con el nombre como parámetro -->
-    <form action="feliz.html" method="GET">
+    <form onsubmit="redirigir(event)">
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required>
         <button type="submit">Ir a Feliz Navidad</button>
