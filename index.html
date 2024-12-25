@@ -20,7 +20,7 @@
             const nombre = document.getElementById('nombre').value.trim().toLowerCase();
             if (nombre === 'piero' || nombre === 'barto') {
                 // Si el nombre es 'Piero' o 'Barto', redirige a pendejo.html
-                window.location.href = 'pendejo.html';
+                window.location.href = 'pendejo.html?nombre=' + nombre;
             } else {
                 // Si no es 'Piero' ni 'Barto', redirige a feliz.html con el nombre como parámetro
                 window.location.href = `feliz.html?nombre=${nombre}`;
