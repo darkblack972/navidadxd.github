@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Navidad 2024</title>
+    <style>
+        body {
+            background-image: url('https://media.discordapp.net/attachments/1240821264197877812/1321288236374560788/image.png?ex=676cb10f&is=676b5f8f&hm=917d63b412e6ddbff95f894727dd2be290659155a2ad4aea275f58fa27feeb27&=&format=webp&quality=lossless');
+            background-size: 100% 100%;
+            background-position: center center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        label {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 24px;
+            max-width: 80%;
+            margin: 0 auto;
+            line-height: 1.5;
+            word-wrap: break-word;
+        }
+        h1 {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 36px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <h1>¡Feliz Navidad 2024!</h1>
+    <label id="mensaje"></label>
+
+    <script>
+        // Obtiene el parámetro 'nombre' de la URL
+        const params = new URLSearchParams(window.location.search);
+        const nombre = params.get('nombre');
+
+        // Actualiza el mensaje con el nombre recibido
+        if (nombre) {
+            document.getElementById('mensaje').innerHTML = `¡Feliz Navidad 2024 a ${nombre}! 🎄<br><br>Este año ha sido una verdadera aventura llena de risas y momentos XD, momentos únicos y muchas memorias compartidas. Desde esas intensas partidas en videojuegos, hasta las largas horas de estudio en la universidad, pasando por las charlas y momentos divertidos en casa. Cada uno de ustedes ha sido una parte esencial de lo que hace tan especial este tiempo con ustedes desde lejos o aquí conmigo, y me siento afortunado de tenerlos cerca, ya sea de forma física o virtual.<br><br>Que esta Navidad nos regale más momentos de alegría, unión y, por supuesto, más risas compartidas. ¡Gracias por ser parte de mi vida y hacerla mucho más divertida! ¡Que el 2025 sea aún mejor para todos! 🎉🎁`;
+        } else {
+            document.getElementById('mensaje').innerHTML = '¡Feliz Navidad 2024! 🎄';
+        }
+    </script>
+</body>
+</html>
