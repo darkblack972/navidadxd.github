@@ -26,10 +26,19 @@
     </style>
 </head>
 <body>
-    <label>
-        Tú no mereces la Navidad, maldita rata gorda pedorra. 🎅<br><br>
-        Eres una desgracia para el espíritu navideño, y ni siquiera el Grinch te quiere en su equipo. Eres la razón por la que Santa revisa dos veces su lista de niños malos.<br><br>
-        Mejor quédate en casa y piensa en todas las malas decisiones que te llevaron hasta aquí, Piero o Barto. 😡
-    </label>
+    <label id="mensaje"></label>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const nombre = params.get('nombre');
+        const mensaje = document.getElementById('mensaje');
+
+        // Mensaje personalizado dependiendo del nombre
+        if (nombre === 'piero') {
+            mensaje.innerHTML = `Tú no mereces la Navidad, maldita rata gorda pedorra. 🎅<br><br>Eres una desgracia para el espíritu navideño, y ni siquiera el Grinch te quiere en su equipo. Eres la razón por la que Santa revisa dos veces su lista de niños malos.<br><br>Mejor quédate en casa y piensa en todas las malas decisiones que te llevaron hasta aquí, Piero. 😡`;
+        } else if (nombre === 'barto') {
+            mensaje.innerHTML = `Tú no mereces la Navidad, maldita rata gorda pedorra. 🎅<br><br>Eres una desgracia para el espíritu navideño, y ni siquiera el Grinch te quiere en su equipo. Eres la razón por la que Santa revisa dos veces su lista de niños malos.<br><br>Mejor quédate en casa y piensa en todas las malas decisiones que te llevaron hasta aquí, Barto. 😡`;
+        }
+    </script>
 </body>
 </html>
