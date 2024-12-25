@@ -40,11 +40,22 @@
             font-size: 36px;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
+        iframe {
+            display: none; /* Oculta el video, pero permite reproducir el audio */
+        }
     </style>
 </head>
 <body>
     <h1>¡Feliz Navidad 2024!</h1>
     <label id="mensaje"></label>
+
+    <!-- Música de YouTube -->
+    <iframe 
+        src="https://youtu.be/uArFYpxDOoU?si=MnAelRy2uy3fouZz" 
+        frameborder="0" 
+        allow="autoplay" 
+        allowfullscreen>
+    </iframe>
 
     <script>
         const params = new URLSearchParams(window.location.search);
