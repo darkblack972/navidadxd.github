@@ -51,9 +51,12 @@
         button:hover {
             background-color: #0056b3;
         }
-        /* Ocultar el iframe en la vista */
+        /* Asegurar que el iframe esté completamente oculto */
         iframe {
-            display: none;
+            position: absolute;
+            width: 0;
+            height: 0;
+            border: none;
         }
     </style>
 </head>
@@ -63,7 +66,7 @@
     <button id="reproducir">Reproducir música 🎵</button>
     <button id="detener">Pausar música ⏸️</button>
 
-    <!-- Contenedor del reproductor de YouTube, oculto visualmente -->
+    <!-- Contenedor para el reproductor de YouTube, será invisible -->
     <div id="player"></div>
 
     <script>
@@ -77,12 +80,12 @@
         // API de YouTube Iframe
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('player', {
-                height: '0',  // No mostramos el video, solo necesitamos el audio
+                height: '0',  // No mostramos el video
                 width: '0',
                 videoId: 'u4PHxjIDl1s', // ID del video actualizado
                 playerVars: {
                     autoplay: 0,
-                    controls: 0,  // Sin controles visuales
+                    controls: 0,  // Sin controles visibles
                     mute: 1,      // Muteamos el video para no mostrar imagen
                     rel: 0,
                     loop: 1       // Para que repita el audio cuando termine
@@ -99,11 +102,11 @@
 
         // Eventos para controlar el reproductor de YouTube
         btnReproducir.addEventListener('click', () => {
-            player.playVideo();
+            player.playVideo();  // Reproduce el audio
         });
 
         btnDetener.addEventListener('click', () => {
-            player.pauseVideo();
+            player.pauseVideo(); // Pausa el audio
         });
     </script>
 
