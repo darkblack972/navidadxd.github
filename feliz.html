@@ -51,8 +51,12 @@
         button:hover {
             background-color: #0056b3;
         }
-        audio {
-            display: none;
+        iframe {
+            border: none;
+            width: 100%;
+            height: 315px;
+            max-width: 560px;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -62,7 +66,7 @@
     <button id="reproducir">Reproducir música 🎵</button>
     <button id="detener">Pausar música ⏸️</button>
 
-    <audio id="musica" src="https://youtu.be/nep5vXf12XI"></audio>
+    <iframe id="musica" src="https://www.youtube.com/embed/nep5vXf12XI?autoplay=0" allow="autoplay"></iframe>
 
     <script>
         const params = new URLSearchParams(window.location.search);
@@ -79,15 +83,11 @@
         }
 
         btnReproducir.addEventListener('click', () => {
-            musica.play();
+            musica.src = "https://www.youtube.com/embed/nep5vXf12XI?autoplay=1";
         });
 
         btnDetener.addEventListener('click', () => {
-            musica.pause();
-        });
-
-        musica.addEventListener('ended', () => {
-            alert('La música ha terminado. Presiona "Reproducir música" para escucharla nuevamente.');
+            musica.src = "https://www.youtube.com/embed/nep5vXf12XI?autoplay=0";
         });
     </script>
 </body>
