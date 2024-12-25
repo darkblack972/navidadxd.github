@@ -66,29 +66,50 @@
     <button id="reproducir">Reproducir música 🎵</button>
     <button id="detener">Pausar música ⏸️</button>
 
-    <iframe id="musica" src="https://www.youtube.com/embed/nep5vXf12XI?autoplay=0" allow="autoplay"></iframe>
+    <!-- Contenedor para el iframe de YouTube -->
+    <div id="player"></div>
 
     <script>
+        let player;
         const params = new URLSearchParams(window.location.search);
         const nombre = params.get('nombre');
         const mensaje = document.getElementById('mensaje');
-        const musica = document.getElementById('musica');
         const btnReproducir = document.getElementById('reproducir');
         const btnDetener = document.getElementById('detener');
 
+        // API de YouTube Iframe
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '315',
+                width: '560',
+                videoId: 'u4PHxjIDl1s', // ID del video actualizado
+                playerVars: {
+                    autoplay: 0,
+                    controls: 1,
+                    modestbranding: 1,
+                    rel: 0
+                }
+            });
+        }
+
+        // Si hay un nombre en la URL, muestra el mensaje personalizado
         if (nombre) {
             mensaje.innerHTML = `¡Feliz Navidad 2024 a ${nombre}! 🎄<br><br>Este año ha sido una verdadera aventura llena de risas y momentos XD, momentos únicos y muchas memorias compartidas. Desde esas intensas partidas en videojuegos, hasta las largas horas de estudio en la universidad, pasando por las charlas y momentos divertidos en casa. Cada uno de ustedes ha sido una parte esencial de lo que hace tan especial este tiempo conmigo. ¡Gracias por ser parte de mi vida y que el 2025 sea aún mejor! 🎉🎁`;
         } else {
             mensaje.innerHTML = '¡Feliz Navidad 2024! 🎄';
         }
 
+        // Eventos para controlar el reproductor de YouTube
         btnReproducir.addEventListener('click', () => {
-            musica.src = "https://www.youtube.com/embed/nep5vXf12XI?autoplay=1";
+            player.playVideo();
         });
 
         btnDetener.addEventListener('click', () => {
-            musica.src = "https://www.youtube.com/embed/nep5vXf12XI?autoplay=0";
+            player.pauseVideo();
         });
     </script>
+
+    <!-- Cargar el script de la API de YouTube -->
+    <script src="https://www.youtube.com/iframe_api"></script>
 </body>
 </html>
