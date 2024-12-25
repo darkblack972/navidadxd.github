@@ -7,11 +7,25 @@
 </head>
 <body>
     <h1>Poner nombre real o nombre de usuario</h1>
-    <!-- Acción apuntando a feliz.html con el nombre como parámetro -->
-    <form action="feliz.html" method="GET">
+    <!-- Acción apuntando a una URL dinámica en función del nombre ingresado -->
+    <form id="nombreForm">
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required>
         <button type="submit">Ir a Feliz Navidad</button>
     </form>
+
+    <script>
+        document.getElementById('nombreForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const nombre = document.getElementById('nombre').value.trim().toLowerCase();
+            if (nombre === 'piero') {
+                // Si el nombre es 'Piero', redirige a pendejo.html
+                window.location.href = 'pendejo.html';
+            } else {
+                // Si no es 'Piero', redirige a feliz.html con el nombre como parámetro
+                window.location.href = `feliz.html?nombre=${nombre}`;
+            }
+        });
+    </script>
 </body>
 </html>
