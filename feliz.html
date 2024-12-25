@@ -51,12 +51,9 @@
         button:hover {
             background-color: #0056b3;
         }
+        /* Ocultar el iframe en la vista */
         iframe {
-            border: none;
-            width: 100%;
-            height: 315px;
-            max-width: 560px;
-            margin-top: 20px;
+            display: none;
         }
     </style>
 </head>
@@ -66,7 +63,7 @@
     <button id="reproducir">Reproducir música 🎵</button>
     <button id="detener">Pausar música ⏸️</button>
 
-    <!-- Contenedor para el iframe de YouTube -->
+    <!-- Contenedor del reproductor de YouTube, oculto visualmente -->
     <div id="player"></div>
 
     <script>
@@ -80,14 +77,15 @@
         // API de YouTube Iframe
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('player', {
-                height: '315',
-                width: '560',
+                height: '0',  // No mostramos el video, solo necesitamos el audio
+                width: '0',
                 videoId: 'u4PHxjIDl1s', // ID del video actualizado
                 playerVars: {
                     autoplay: 0,
-                    controls: 1,
-                    modestbranding: 1,
-                    rel: 0
+                    controls: 0,  // Sin controles visuales
+                    mute: 1,      // Muteamos el video para no mostrar imagen
+                    rel: 0,
+                    loop: 1       // Para que repita el audio cuando termine
                 }
             });
         }
