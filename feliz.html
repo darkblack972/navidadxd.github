@@ -7,9 +7,10 @@
     <style>
         body {
             background-image: url('https://media.discordapp.net/attachments/1240821264197877812/1321288236374560788/image.png?ex=676cb10f&is=676b5f8f&hm=917d63b412e6ddbff95f894727dd2be290659155a2ad4aea275f58fa27feeb27&=&format=webp&quality=lossless');
-            background-size: cover;
-            background-position: center;
+            background-size: 100% 100%;
+            background-position: center center;
             background-repeat: no-repeat;
+            height: 100vh;
             color: white;
             font-family: Arial, sans-serif;
             display: flex;
@@ -17,60 +18,66 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
-            min-height: 100vh;
-            margin: 0;
+            text-align: center;
+            box-sizing: border-box;
+            overflow: hidden;
         }
         label {
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: rgba(0, 0, 0, 0.5);
             padding: 20px;
             border-radius: 10px;
-            font-size: 1.5rem;
-            text-align: center;
+            font-size: 24px;
+            max-width: 80%;
+            margin: 20px auto;
             line-height: 1.5;
-            max-width: 90%;
+            word-wrap: break-word;
         }
         h1 {
-            margin-bottom: 20px;
-            font-size: 2.5rem;
+            color: white;
+            font-size: 36px;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
         button {
-            margin-top: 20px;
             padding: 10px 20px;
-            font-size: 1rem;
+            font-size: 16px;
+            color: white;
+            background-color: #28a745;
             border: none;
             border-radius: 5px;
-            background-color: #007BFF;
-            color: white;
             cursor: pointer;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-            width: 90%;
-            max-width: 200px;
-            text-align: center;
+            margin-top: 20px;
         }
         button:hover {
-            background-color: #0056b3;
+            background-color: #218838;
         }
-        audio {
-            display: none;
+        iframe {
+            width: 0;
+            height: 0;
+            border: 0;
+            position: absolute;
         }
     </style>
 </head>
 <body>
     <h1>¡Feliz Navidad 2024!</h1>
     <label id="mensaje"></label>
-    <button id="reproducir">Reproducir música 🎵</button>
-    <button id="detener">Pausar música ⏸️</button>
+    <button id="reproducir">Reproducir Música</button>
 
-    <audio id="musica" src="https://youtu.be/u4PHxjIDl1s?si=KEltCpJdePhxSyE1"></audio>
+    <!-- Música de YouTube -->
+    <iframe 
+        id="musica" 
+        src="https://www.youtube.com/embed/uArFYpxDOoU?autoplay=1&loop=1&playlist=uArFYpxDOoU"
+        frameborder="0" 
+        allow="autoplay" 
+        allowfullscreen>
+    </iframe>
 
     <script>
         const params = new URLSearchParams(window.location.search);
         const nombre = params.get('nombre');
         const mensaje = document.getElementById('mensaje');
         const musica = document.getElementById('musica');
-        const btnReproducir = document.getElementById('reproducir');
-        const btnDetener = document.getElementById('detener');
+        const boton = document.getElementById('reproducir');
 
         if (nombre) {
             mensaje.innerHTML = `¡Feliz Navidad 2024 a ${nombre}! 🎄<br><br>Este año ha sido una verdadera aventura llena de risas y momentos XD, momentos únicos y muchas memorias compartidas. Desde esas intensas partidas en videojuegos, hasta las largas horas de estudio en la universidad, pasando por las charlas y momentos divertidos en casa. Cada uno de ustedes ha sido una parte esencial de lo que hace tan especial este tiempo conmigo. ¡Gracias por ser parte de mi vida y que el 2025 sea aún mejor! 🎉🎁`;
@@ -78,16 +85,8 @@
             mensaje.innerHTML = '¡Feliz Navidad 2024! 🎄';
         }
 
-        btnReproducir.addEventListener('click', () => {
-            musica.play();
-        });
-
-        btnDetener.addEventListener('click', () => {
-            musica.pause();
-        });
-
-        musica.addEventListener('ended', () => {
-            alert('La música ha terminado. Presiona "Reproducir música" para escucharla nuevamente.');
+        boton.addEventListener('click', () => {
+            musica.style.display = 'block';
         });
     </script>
 </body>
